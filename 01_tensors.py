@@ -1,0 +1,97 @@
+"""
+01_tensors.py
+Introduction to PyTorch Tensors
+
+Tensors are the fundamental data structure in PyTorch.
+Think of them as multi-dimensional arrays (like NumPy arrays).
+"""
+
+import torch
+import numpy as np
+
+print("=" * 50)
+print("PYTORCH TENSORS BASICS")
+print("=" * 50)
+
+# 1. Creating tensors from scratch
+print("\n1. Creating Tensors:")
+print("-" * 30)
+
+# Create a 1D tensor (vector)
+tensor_1d = torch.tensor([1, 2, 3, 4, 5])
+print(f"1D tensor: {tensor_1d}")
+
+# Create a 2D tensor (matrix)
+tensor_2d = torch.tensor([[1, 2, 3], [4, 5, 6]])
+print(f"2D tensor:\n{tensor_2d}")
+
+# Create a tensor of zeros
+zeros = torch.zeros(2, 3)  # 2 rows, 3 columns
+print(f"Zeros tensor:\n{zeros}")
+
+# Create a tensor of ones
+ones = torch.ones(2, 3)
+print(f"Ones tensor:\n{ones}")
+
+# Create a tensor with random values
+random = torch.rand(2, 3)  # Values between 0 and 1
+print(f"Random tensor:\n{random}")
+
+# 2. Tensor properties
+print("\n2. Tensor Properties:")
+print("-" * 30)
+x = torch.tensor([[1, 2, 3], [4, 5, 6]])
+print(f"Tensor:\n{x}")
+print(f"Shape: {x.shape}")  # Dimensions
+print(f"Data type: {x.dtype}")  # Type of data
+print(f"Device: {x.device}")  # CPU or GPU
+
+# 3. Converting between NumPy and PyTorch
+print("\n3. NumPy ↔ PyTorch:")
+print("-" * 30)
+
+# NumPy to PyTorch
+np_array = np.array([1, 2, 3, 4, 5])
+torch_tensor = torch.from_numpy(np_array)
+print(f"NumPy array: {np_array}")
+print(f"PyTorch tensor: {torch_tensor}")
+
+# PyTorch to NumPy
+back_to_numpy = torch_tensor.numpy()
+print(f"Back to NumPy: {back_to_numpy}")
+
+# 4. Basic tensor operations
+print("\n4. Tensor Operations:")
+print("-" * 30)
+
+a = torch.tensor([1, 2, 3])
+b = torch.tensor([4, 5, 6])
+
+# Addition
+print(f"a + b = {a + b}")
+
+# Multiplication (element-wise)
+print(f"a * b = {a * b}")
+
+# Matrix multiplication
+matrix_a = torch.tensor([[1, 2], [3, 4]])
+matrix_b = torch.tensor([[5, 6], [7, 8]])
+result = torch.matmul(matrix_a, matrix_b)
+print(f"Matrix multiplication:\n{result}")
+
+# 5. Reshaping tensors
+print("\n5. Reshaping:")
+print("-" * 30)
+
+original = torch.tensor([1, 2, 3, 4, 5, 6])
+print(f"Original: {original}")
+
+reshaped = original.view(2, 3)  # Reshape to 2x3
+print(f"Reshaped to 2x3:\n{reshaped}")
+
+reshaped_again = reshaped.view(3, 2)  # Reshape to 3x2
+print(f"Reshaped to 3x2:\n{reshaped_again}")
+
+print("\n" + "=" * 50)
+print("🎉 Great! You now understand PyTorch tensors!")
+print("=" * 50)
