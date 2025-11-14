@@ -33,6 +33,9 @@ cd teaching_intro_pytorch
 
 2. Install dependencies:
 ```bash
+
+python -m venv venv_pytorch
+source venv_pytorch/bin/activate  # On Windows use `venv_pytorch\Scripts\activate`
 pip install -r requirements.txt
 ```
 
@@ -50,6 +53,12 @@ python 01_tensors.py
 Understand automatic differentiation and how PyTorch computes gradients.
 ```bash
 python 02_autograd.py
+```
+
+### 3. Neural Networks (`03_nn.py`)
+Build and train a simple neural network using PyTorch.
+```bash
+python 03_nn.py
 ```
 
 ### 3. Linear Regression (`03_linear_regression.py`)
