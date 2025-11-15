@@ -153,4 +153,5 @@ print("\n Starting training of custom model...\n")
 num_epochs = 1000
 for epoch in range(num_epochs):
     loss = model.backward(distances, times)
-    
+
+print("\n Training completed.\n")
