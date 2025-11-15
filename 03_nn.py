@@ -116,6 +116,9 @@ plt.ylabel("Delivery time")
 plt.legend()
 plt.show()
 
+
+# Define a custom model class
+
 class DeliveryTimeModel(nn.Module): # Custom model class
     def __init__(self):
         super(DeliveryTimeModel, self).__init__()
@@ -142,4 +145,12 @@ class DeliveryTimeModel(nn.Module): # Custom model class
 
     
 # instantiate the model
+print("\n Creating custom model instance...\n")
 model = DeliveryTimeModel()
+
+# train the model
+print("\n Starting training of custom model...\n")
+num_epochs = 1000
+for epoch in range(num_epochs):
+    loss = model.backward(distances, times)
+    
