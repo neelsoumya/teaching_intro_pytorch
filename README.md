@@ -1,6 +1,5 @@
-# teaching_intro_pytorch
 
-## Introduction to PyTorch (teaching)
+# Introduction to PyTorch (teaching)
 
 
 # PyTorch Basics Tutorial
