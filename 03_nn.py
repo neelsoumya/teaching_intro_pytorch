@@ -155,3 +155,20 @@ for epoch in range(num_epochs):
     loss = model.backward(distances, times)
 
 print("\n Training completed.\n")
+
+# making predictions with the model
+f_distance_to_predict = 17.1
+with torch.no_grad(): # No gradient tracking needed for inference
+    new_distance = torch.tensor(
+        [ [f_distance_to_predict] ],
+        dtype = torch.float32
+    )
+
+    predicted_new_time = model(new_distance)
+
+    print("\n Predicted delivery time for distance:", predicted_new_time.item())
+    print("\n")
+
+# TODO: fix negarive time prediction issue
+if predicted_new_time.item() < 0:
+    print("Warning: Predicted delivery time is negative, which is not realistic.")
