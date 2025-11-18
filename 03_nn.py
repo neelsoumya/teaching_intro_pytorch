@@ -157,18 +157,42 @@ for epoch in range(num_epochs):
 print("\n Training completed.\n")
 
 # making predictions with the model
-f_distance_to_predict = 17.1
+f_distance_to_predict = 171.1
 with torch.no_grad(): # No gradient tracking needed for inference
+
+    # prepare the input tensor (convert to tensor)
     new_distance = torch.tensor(
         [ [f_distance_to_predict] ],
         dtype = torch.float32
     )
 
+    # make the prediction by calling the model
     predicted_new_time = model(new_distance)
 
     print("\n Predicted delivery time for distance:", predicted_new_time.item())
     print("\n")
 
-# TODO: fix negarive time prediction issue
+# TODO: fix negative time prediction issue
 if predicted_new_time.item() < 0:
     print("Warning: Predicted delivery time is negative, which is not realistic.")
+
+# have an assertion to check if the predicted time is positive
+# assert predicted_new_time.item() >= 0, "Predicted delivery time should be non-negative"
+
+
+# Inspect the model layers and parameters
+print("\n Model structure:\n", model)
+print("\n Model parameters:")
+for name, param in model.named_parameters():
+    print(f"Layer: {name} | Size: {param.size()} | Values : {param.data}")
+
+# access individual layers
+print("\n Individual layers in the model:")
+for layer in model.children():
+    print("\n Layer:", layer)
+
+layer = model[0] # Access the first layer
+# get weights and bias
+weights = layer.weight.data.numpy()
+# TODO: TypeError: 'DeliveryTimeModel' object is not subscriptable
+print("\n", weights, "\n")
