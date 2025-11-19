@@ -196,3 +196,6 @@ layer = model[0] # Access the first layer
 weights = layer.weight.data.numpy()
 # TODO: TypeError: 'DeliveryTimeModel' object is not subscriptable
 print("\n", weights, "\n")
+
+# TOD): Print weights and bias
+bias = layer.bias.data.numpy()
