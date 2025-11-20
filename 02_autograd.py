@@ -31,6 +31,19 @@ y.backward()  # This computes the gradient
 # dy/dx = 2x, so at x=2, gradient = 2*2 = 4
 print(f"dy/dx at x=2 is: {x.grad}")
 
+# EXPLANATION
+# When you created x with torch.tensor(2.0, requires_grad=True), PyTorch marked x as a leaf tensor that should accumulate gradients. Any operation on tensors with requires_grad=True builds a dynamic computation graph: each output tensor gets a grad_fn (a Function node) that points to the operation that created it.
+
+# What y.backward() does: Calling y.backward() starts backpropagation from y (treating dy/dy = 1 for a scalar). Autograd traverses the graph in reverse, applying the chain rule through each grad_fn, and computes gradients for tensors that require gradients.
+# Where the gradient goes: Gradients for leaf tensors are accumulated in their .grad attribute. In this case x.grad receives dy/dx = 2*x, so after y.backward() (with x=2.0) you get x.grad == 4.0.
+
+# Additional notes:
+
+# The graph is dynamic — built as operations run — and freed by default after backward unless you pass retain_graph=True.
+# If a tensor is detached or created inside torch.no_grad(), no graph node is created and no gradients are tracked.
+# For non-scalar y, you must pass a gradient argument to backward() matching y's shape.
+
+
 # 2. More complex example
 print("\n2. More Complex Function:")
 print("-" * 30)
