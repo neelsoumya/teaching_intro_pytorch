@@ -1,13 +1,23 @@
-"""
+'''
 01_tensors.py
 Introduction to PyTorch Tensors
 
 Tensors are the fundamental data structure in PyTorch.
-Think of them as multi-dimensional arrays (like NumPy arrays).
-"""
+
+Authors: Soumya Banerjee
+Date: June 2025
+'''
 
 import torch
 import numpy as np
+
+my_distances = [ [0.1], [0.31], [0.23], [1.99] ]
+tensor_distances = torch.tensor(my_distances)
+
+print(tensor_distances.shape) # torch.Size([4, 1])
+
+numpy_array = np.array([12, 89, 6.7, 9.0])
+#tensor_from_numpy = torch.from_numpy(numpy_array)
 
 print("=" * 50)
 print("PYTORCH TENSORS BASICS")
