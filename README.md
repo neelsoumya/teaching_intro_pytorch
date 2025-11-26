@@ -43,7 +43,7 @@ pip install -r requirements.txt
 Run the scripts in order:
 
 ### 1. Tensors (`01_tensors.py`)
-Learn about PyTorch tensors - the building blocks of deep learning.
+Learn about PyTorch tensors - the building blocks of deep learning. Basics of tensor creation, manipulation, and operations.
 ```bash
 python 01_tensors.py
 ```

@@ -7,6 +7,11 @@ Tensors are the fundamental data structure in PyTorch.
 Acknowledgements: Based on materials from various online resources.
     https://www.coursera.org/learn/pytorch-fundamentals/lecture/pZvZU/tensors
 
+Setup:
+    source .venv_pytorch/bin/activate
+    pip install -r requirements.txt
+    python 01_tensors.py
+
 Authors: Soumya Banerjee
 Date: June 2025
 '''
@@ -19,10 +24,17 @@ import numpy as np
 
 
 my_distances = [ [0.1], [0.31], [0.23], [1.99] ]
-tensor_distances = torch.tensor(my_distances)
+tensor_distances = torch.tensor(my_distances,
+                                dtype = torch.float32) # create a tensor from a list    
 
-print("Shape of Tensor of distances:")
+# get shape of tensor
+print("\n Shape of Tensor of distances: \n")
 print(tensor_distances.shape) # torch.Size([4, 1])
+
+# getting an item from a tensor
+print("\n First item in the tensor of distances: \n")
+print(tensor_distances[0]) # get the first item
+print(tensor_distances[0].item()) # get the first item as a standard python
 
 # now feed it to a model
 simple_nn_model = torch.nn.Linear(in_features = 1,
@@ -36,6 +48,41 @@ print(output_nn)
 
 numpy_array = np.array([12, 89, 6.7, 9.0])
 #tensor_from_numpy = torch.from_numpy(numpy_array)
+
+
+####################################
+# tensor math operations
+####################################
+new_distances = torch.tensor([ [0.19],
+                               [0.45],
+                               [9.01],
+                               [0.89] 
+                               ],
+                               dtype = torch.float32
+                            )
+
+print("\n Tensor Math Operations: \n")
+print(new_distances + 1.99) # add 1.99 to each element
+print(new_distances * 2.0)  # multiply each element by 2.0
+
+######################
+# Load from pandas
+#######################
+import pandas as pd
+
+# load from csv file and convert to tensor
+github_url = "https://raw.githubusercontent.com/cambiotraining/ml-unsupervised/main/course_files/data/diabetes_sample_data.csv"
+df = pd.read_csv(github_url)
+print("\n Dataframe head: \n"
+      , df.head()
+      )
+# convert to tensor
+df.values # has all values
+tensor_from_pandas = torch.tensor(df.values, 
+                                  dtype = torch.float32
+                                  )
+print("\n Shape of tensor from pandas dataframe: \n")
+print(tensor_from_pandas.shape)
 
 print("=" * 50)
 print("PYTORCH TENSORS BASICS")
