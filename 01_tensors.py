@@ -65,6 +65,20 @@ print("\n Tensor Math Operations: \n")
 print(new_distances + 1.99) # add 1.99 to each element
 print(new_distances * 2.0)  # multiply each element by 2.0
 
+more_distances = torch.tensor( [ [1.9],
+                                [9.9],
+                                [0.8],
+                                [6.7],
+                                ],
+                                dtype = torch.float32
+)
+
+print("\n Element-wise multiplication of two tensors: \n ")
+print(new_distances * more_distances) # element-wise multiplication
+
+print("\n dot product of two tensors: \n ")
+print( torch.matmul(new_distances.T, more_distances) ) # dot product
+
 ######################
 # Load from pandas
 #######################

@@ -54,7 +54,6 @@ times = torch.tensor([  [1.5] ,
                      )
 
 # define the neural network model
-
 model = nn.Sequential(
     nn.Linear(1,1) # One input feature (distance), one output feature (time)
 )
@@ -191,11 +190,39 @@ print("\n Individual layers in the model:")
 for layer in model.children():
     print("\n Layer:", layer)
 
-layer = model[0] # Access the first layer
+# layer = model[0] # Access the first layer
 # get weights and bias
-weights = layer.weight.data.numpy()
+# weights = layer.weight.data.numpy()
 # TODO: TypeError: 'DeliveryTimeModel' object is not subscriptable
-print("\n", weights, "\n")
+# print("\n", weights, "\n")
 
 # TOD): Print weights and bias
-bias = layer.bias.data.numpy()
+# bias = layer.bias.data.numpy()
+
+
+
+####################################
+# More complex model example
+####################################
+print("\n Creating a more complex model...\n")
+model_complex = nn.Sequential(
+    nn.Linear(1,3), # One input feature (distance), three output feature (time)
+    nn.ReLU(),      # ReLU activation function
+    nn.Linear(3,1)  # Another linear layer, three inputs to one output
+)
+
+# TODO: normalize the input data for better training performance
+
+
+# train the complex model
+print("\n Starting training of complex model...\n")
+loss_function_complex = nn.MSELoss() # Mean Squared Error loss
+optimizer_complex = optim.SGD(
+    model_complex.parameters(), # Stochastic Gradient Descent optimizer
+    lr = 0.01                  # Learning rate
+)
+
+num_epochs = 1000 # Training loop
+for epoch in range(num_epochs):
+    # reset gradients
+    optimizer_complex.zero_grad() # Zero the gradients
