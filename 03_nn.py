@@ -211,8 +211,16 @@ model_complex = nn.Sequential(
     nn.Linear(3,1)  # Another linear layer, three inputs to one output
 )
 
-# TODO: normalize the input data for better training performance
+# TODO: Non-linear data
 
+# TODO: normalize the input data for better training performance
+distances_mean = distances.mean() # Calculate mean
+distances_std = distances.std()   # Calculate standard deviation
+distances_normalized = (distances - distances_mean) / distances_std # Normalize distances
+
+times_mean = times.mean() # Calculate mean
+time_std = times.std()   # Calculate standard deviation
+times_normalized = (times - times_mean) / time_std # Normalize times
 
 # train the complex model
 print("\n Starting training of complex model...\n")
@@ -226,3 +234,12 @@ num_epochs = 1000 # Training loop
 for epoch in range(num_epochs):
     # reset gradients
     optimizer_complex.zero_grad() # Zero the gradients
+
+    # make predictions (forward pass) with normalized data
+    outputs_complex = model_complex(distances_normalized)
+
+    # compute loss with normalized data
+    loss_complex = loss_function_complex(outputs_complex,
+                                         times_normalized
+                                         )
+    
