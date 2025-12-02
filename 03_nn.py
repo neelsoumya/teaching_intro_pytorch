@@ -21,6 +21,11 @@ Usage:
 
 Author: soumya banerjee
 
+Acknowledgements:
+- Based on PyTorch tutorials and documentation.
+- https://www.coursera.org/learn/pytorch-fundamentals/ungradedLab/chHVv/modeling-non-linear-patterns-with-activation-functions
+
+
 '''
 
 import torch # Main PyTorch library
