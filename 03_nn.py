@@ -248,3 +248,15 @@ for epoch in range(num_epochs):
                                          times_normalized
                                          )
     
+    # make adjustments (backward pass)
+    loss_complex.backward()
+
+    # update weights (model parameters)
+    optimizer_complex.step()
+
+
+print("\n Training of complex model completed.\n")
+print("Complex model structure:\n")
+print(model_complex)
+
+# making predictions with the complex model
