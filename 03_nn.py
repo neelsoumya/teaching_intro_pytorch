@@ -272,7 +272,10 @@ print(predictions_complex_model)
 # make a new vector
 f_distance_to_predict = 17.1
 
-# TODO: normalize
+# normalize (but use means and stds from training data)
+print("\n Normalizing new input data...\n")
+f_distance_to_predict_normalized = (f_distance_to_predict - distances_mean) / distances_std
+print("\n Normalized distance:", f_distance_to_predict_normalized.item(), "\n")
 
 # TODO: convert to tensor
 
