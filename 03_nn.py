@@ -277,6 +277,27 @@ print("\n Normalizing new input data...\n")
 f_distance_to_predict_normalized = (f_distance_to_predict - distances_mean) / distances_std
 print("\n Normalized distance:", f_distance_to_predict_normalized.item(), "\n")
 
-# TODO: convert to tensor
+# convert to tensor
+print("\n Converting normalized input to tensor...\n")
+t_distance_to_predict_nornalized = torch.tensor([ [f_distance_to_predict_normalized]
+                                                 ],
+                                                 dtype = torch.float32
+                                                )
 
-# predict
+# predict with complex model with normalized input
+print("\n Making prediction with complex model...\n")
+with torch.no_grad(): # no backtrack
+    f_predicted_time_normalized_complexmodel = model_complex(t_distance_to_predict_nornalized)
+
+    # denormalize the output
+    f_predicted_time_denormalized_complexmodel = (f_predicted_time_normalized_complexmodel * time_std) + times_mean
+    print("\n Predicted delivery time from complex model for distance",
+        f_distance_to_predict,
+        "is",
+        f_predicted_time_denormalized_complexmodel.item(),
+        "\n"
+        )
+
+    # TODO: do detach and cpu?
+
+    # TODO: plot the predictions from complex model vs original data
