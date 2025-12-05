@@ -89,6 +89,7 @@ import matplotlib.pyplot as plt
 #plt.plot( range(num_epochs),
 #         [loss_function()])
 
+print("\n Make predictions using a simple model \n")
 # plot the prediction of the model with the actual data
 predicted = model(distances).detach().cpu() # Get predictions
 # what is detach() doing here?
@@ -260,3 +261,19 @@ print("Complex model structure:\n")
 print(model_complex)
 
 # making predictions with the complex model
+
+# convert to numpy
+with torch.no_grad(): # no backtrack
+    predictions_complex_model = model_complex(distances_normalized).detach().cpu()
+
+print("\n Predictions from complex model \n")
+print(predictions_complex_model)
+
+# make a new vector
+f_distance_to_predict = 17.1
+
+# TODO: normalize
+
+# TODO: convert to tensor
+
+# predict
