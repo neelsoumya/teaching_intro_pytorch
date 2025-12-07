@@ -118,6 +118,7 @@ plt.plot(distances_plot,
         )
 plt.xlabel("Distance")
 plt.ylabel("Delivery time")
+plt.title("Simple model Predictions vs Original Data")
 plt.legend()
 plt.show()
 
@@ -301,3 +302,31 @@ with torch.no_grad(): # no backtrack
     # TODO: do detach and cpu?
 
     # TODO: plot the predictions from complex model vs original data
+
+
+with torch.no_grad(): # no backtrack
+    # plot the prediction of the complex model with the actual data
+    predicted_complex = model_complex(distances_normalized).detach().cpu()
+
+    # denormalize predictions
+    predicted_complex_denormalized = (predicted_complex * time_std) + times_mean
+
+    # convert to numpy for plotting
+    plt.figure()
+    plt.plot(distances_plot,
+            times_plot,
+            'ro',
+            label = 'Original data'
+            )
+    plt.plot(distances_plot,
+            # predicted_complex_denormalized.detach().cpu().numpy(),
+            predicted_complex_denormalized.detach().cpu().tolist(), # convert to list for plotting if numpy fails
+            label = 'Complex model prediction'
+            )
+    plt.xlabel("Distance")
+    plt.ylabel("Delivery time")
+    plt.title("Complex model Predictions vs Original Data")
+    plt.legend()
+    plt.show()
+
+# TODO: create linear probe to extract features from complex model
