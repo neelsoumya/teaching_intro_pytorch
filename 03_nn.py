@@ -301,8 +301,8 @@ with torch.no_grad(): # no backtrack
 
     # TODO: do detach and cpu?
 
-    # TODO: plot the predictions from complex model vs original data
-
+# Plot the predictions from complex model vs original data
+print("\n Plotting complex model predictions vs original data...\n")
 
 with torch.no_grad(): # no backtrack
     # plot the prediction of the complex model with the actual data
@@ -325,7 +325,7 @@ with torch.no_grad(): # no backtrack
             )
     plt.xlabel("Distance")
     plt.ylabel("Delivery time")
-    plt.title("Complex model Predictions vs Original Data")
+    plt.title("Complex model predictions vs Original Data")
     plt.legend()
     plt.show()
 
