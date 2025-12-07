@@ -330,3 +330,6 @@ with torch.no_grad(): # no backtrack
     plt.show()
 
 # TODO: create linear probe to extract features from complex model
+# Available at:
+#   https://github.com/neelsoumya/llm_projects/blob/main/SAE_linear_probes.ipynb
+print("\n Script completed. \n")
