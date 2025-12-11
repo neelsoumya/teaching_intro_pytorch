@@ -28,6 +28,7 @@ Acknowledgements:
 
 '''
 
+# Load libraries
 import torch # Main PyTorch library
 import torch.nn as nn # For neural network modules
 import torch.optim as optim # For optimization algorithms
@@ -57,6 +58,8 @@ times = torch.tensor([  [1.5] ,
                        ],
                        dtype = torch.float32
                      )
+
+print(" Building a simple neural network model to predict delivery time based on distance \n ")
 
 # define the neural network model
 model = nn.Sequential(
