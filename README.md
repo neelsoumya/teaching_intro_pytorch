@@ -40,7 +40,9 @@ pip install -r requirements.txt
 
 ## 📖 Tutorial Structure
 
-Run the scripts in order:
+- [PyTorch basics and backward and forward pass and class structure](pytorch_forward_backward_explained.md)
+
+- Then run the scripts in order:
 
 ### 1. Tensors (`01_tensors.py`)
 Learn about PyTorch tensors - the building blocks of deep learning. Basics of tensor creation, manipulation, and operations.
@@ -72,12 +74,6 @@ Create and train a basic neural network for classification.
 python 04_neural_network.py
 ```
 
-## 💡 Tips for Learning
-
-- Read through each script before running it
-- Try modifying the code and see what happens
-- Each script is standalone and can be run independently
-- Comments explain every important step
 
 ## 📚 Additional Resources
 
@@ -85,9 +81,6 @@ python 04_neural_network.py
 - [PyTorch Tutorials](https://pytorch.org/tutorials/)
 - [Deep Learning with PyTorch Book](https://pytorch.org/assets/deep-learning/Deep-Learning-with-PyTorch.pdf)
 
-## 🤝 Contributing
-
-Feel free to open issues or submit pull requests if you find any problems or have suggestions for improvement!
 
 ## 📄 License
 
