@@ -4,9 +4,9 @@ A comprehensive guide for students and instructors explaining the internal worki
 
 ---
 
-![image](../images/pytorch_class.jpeg)
+![image](pytorch_class.jpeg)
 
-![image](../images/backward_pytorch.jpeg)
+![image](backward_pytorch.jpeg)
 
 ## 1. Executive Summary & Core Philosophy
 
