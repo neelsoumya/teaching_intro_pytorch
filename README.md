@@ -42,6 +42,11 @@ pip install -r requirements.txt
 
 - [PyTorch basics and backward and forward pass and class structure](pytorch_forward_backward_explained.md)
 
+![image](pytorch_class.jpeg)
+
+![image](backward_pytorch.jpeg)
+
+
 - Then run the scripts in order:
 
 ### 1. Tensors (`01_tensors.py`)
